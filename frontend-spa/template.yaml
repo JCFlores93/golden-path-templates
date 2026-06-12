@@ -169,20 +169,25 @@ spec:
       name: Publicar en GitHub
       action: publish:github
       input:
-        allowedHosts:
-          - github.com
         description: ${{ parameters.description }}
         repoUrl: ${{ parameters.destination }}
         repoVisibility: ${{ parameters.repo_visibility }}
         defaultBranch: ${{ parameters.default_branch }}
-        gitCommitMessage: "feat: initial scaffold from golden-path-frontend-spa"
+        gitCommitMessage: "feat: initial scaffold from golden-path-backend-nodejs"
         gitAuthorName: "Platform Engineering Bot"
         gitAuthorEmail: "platform@tuempresa.com"
         topics:
-          - react
-          - vite
-          - frontend
+          - nodejs
+          - express
           - golden-path
+          - ${{ parameters.environment }}
+        requireCodeOwnerReviews: true
+        deleteBranchOnMerge: true
+        allowMergeCommit: false
+        allowSquashMerge: true
+        allowRebaseMerge: false
+        hasProjects: false
+        hasWiki: false
 
     # ── Paso 3: Registrar en el catálogo ─────────────────────
     - id: catalog-register
